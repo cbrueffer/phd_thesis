@@ -1,0 +1,106 @@
+% ==================================
+% FRONTMATTER
+% ==================================
+\frontmatter % roman numbers
+
+% -----------------------------
+% Page 1: Title only
+% -----------------------------
+\thispagestyle{empty} % no page number
+\begin{center}
+\vspace*{5cm}
+{\Huge \myMainTitle}
+{\LARGE \mySubTitle}
+\end{center}
+
+
+% -----------------------------
+% Page 2: Blank
+% -----------------------------
+\cleardoublepage
+\thispagestyle{empty} % no page number
+~
+
+% -----------------------------
+% Page 3: Title Page
+% -----------------------------
+\vfill
+\begin{center}
+{\Huge \myMainTitle}
+\\[2mm]
+{\huge \mySubTitle}
+\vfill
+{\LARGE \myName}
+
+\vfill
+\includegraphics[width=0.25\textwidth]{img/LundUniversity_logo.eps}
+
+\vspace{10mm}
+{\large \myDegree}\\
+\vspace{2mm}
+{\large \myDefenceAnnouncement}\\
+\vspace{10mm}
+{\large\it Faculty opponent}\\
+\vspace{5mm}
+{\large \myOpponent}\\
+{\large \myOpponentAffiliation}
+\end{center}
+\vfill
+
+% -----------------------------
+% Page 4: Insert datasheet
+% -----------------------------
+%\newpage \thispagestyle{empty} % no page number
+\includepdf{datasheet}
+
+% -----------------------------
+% Page 5: Title and author again, with less text.
+% -----------------------------
+\cleardoublepage
+\thispagestyle{empty} % no page number
+~
+\vfill
+\begin{center}
+{\Huge \myMainTitle}
+\\[2mm]
+{\huge \mySubTitle}
+\vfill
+{\Huge \myName}
+\vfill
+% black and white (default):
+\includegraphics[width=0.25\textwidth]{img/LundUniversity_logo.eps}
+\end{center}
+\vfill
+
+
+% -----------------------------
+% Page 6: COPYRIGHT INFO
+% -----------------------------
+\newpage 
+\thispagestyle{empty} % no page number
+~
+\vfill
+%\myBlurb
+\vfill
+{\small
+\myCoverFront\\
+~
+\myCoverBack\\
+~
+\myFundingSource
+\vspace{5mm}
+\copyright\, \myName~\myCopyrightYear\\
+~
+{\myDepartment} \\ \myFaculty, Lund University \vspace{1em} \\
+~
+\mySourceLocation\\[1em]
+~
+\mySeries\\
+ISBN: \myISBNprint \\ % ISBN av svenska ISBN centralen
+%ISBN: \myISBNpdf~(pdf) \\ % ISBN av svenska ISBN centralen
+ISSN: \myISSN \\[0.5em]
+~
+Printed in Sweden by Media-Tryck, Lund~University\\
+Lund~\myCopyrightYear\\[4mm]
+\includegraphics[width=0.5\textwidth]{img/miljoeloggor}
+}

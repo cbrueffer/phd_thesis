@@ -1,0 +1,288 @@
+% ==================================
+% PACKAGES
+% ==================================
+
+% Make \cleardoublepage insert an empty page without a page number.
+\usepackage{emptypage} 
+\usepackage{blindtext}	% For "Lorem Ipsum" style place holders
+\usepackage{graphicx}	% For \includegraphics
+\usepackage{amsfonts}	% Math symbols
+\usepackage{amsmath}	% Math symbols
+\usepackage{amssymb}	% Math symbols
+\usepackage{pdfpages}	% To include the PDFs of the papers
+\usepackage{moresize}	% Additional font sizes \HUGE and \ssmal.
+%\usepackage{pageslts}  % To calculate the total number of pages
+\usepackage{enumerate}  % more enumeration options, e.g. roman numerals
+\usepackage{enumitem}   % more itemize flexibility
+\usepackage{parskip}    % paragraph spacing
+\usepackage{longtable}  % needed by tabu
+\usepackage{tabu}       % long table
+\usepackage{rotating}   % for sidewaysfigure
+\usepackage{textcomp}   % for \textcopyright
+\usepackage[super]{nth} % for nice formatting of "2nd" etc
+
+
+% ------------------------------------------------- %
+% Hyperlinks
+%
+\definecolor{myblue}{RGB}{0, 114, 178}
+\definecolor{myyellow}{RGB}{230, 159, 0}
+\usepackage[colorlinks=false,
+            linkbordercolor=myblue,
+            citebordercolor=myblue,
+            urlbordercolor=myyellow,
+            %hidelinks,
+            % PDF metadata
+            pdftitle={RNA Sequencing for Molecular Diagnostics in Breast Cancer}
+            pdfauthor={Christian Brueffer},
+            pdfsubject={RNA Sequencing for Molecular Diagnostics in Breast Cancer},
+            pdfkeywords={Breast cancer, RNA sequencing, diagnostics, biomarkers, mutations},
+            ]{hyperref}
+
+
+% Hyphenation, support for different languages, last one is default
+% Make sure to install the hyphenation packages for all languages you need
+\usepackage[ngerman,british]{babel} 
+
+% ==================================
+% PAGE SIZE -- G5 OR E5
+% ==================================
+
+% G5 format (larger)
+\usepackage[paperwidth=169mm,paperheight=239mm,total={13.3cm,19.6cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+
+% E5 format (smaller)
+%\usepackage[paperwidth=155mm,paperheight=220mm,total={12cm,18cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+
+
+% ==================================
+% CONFIGURE THE FONTS
+% ==================================
+\usepackage{ifxetex}
+\usepackage{mathspec}
+\usepackage[no-math]{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
+\AtBeginEnvironment{tabularx}{\addfontfeatures{Numbers={Monospaced}}}
+
+%
+% (1) If the font is installed in your system:
+%
+%\setmainfont{Adobe Garamond Pro}
+%\setsansfont{Frutiger LT Std 45 Light}
+%\setmathfont(Greek,Digits,Latin){Adobe Garamond Pro}
+
+%
+% (2) If the fonts in the local directory.
+%
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Semibold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-Italic,
+]{AGaramondPro}
+\setsansfont{[FrutigerLTStd-Light.otf]}
+%\setmathfont(Greek,Digits,Latin){[AGaramondPro-Italic.otf]}
+
+% mathspec is broken. The next eight lines work around that.
+\usepackage{etoolbox}
+\makeatletter
+\begingroup\lccode`~=`"
+\lowercase{\endgroup
+  \everymath{\let~\eu@active@quote}
+  \everydisplay{\let~\eu@active@quote}
+}
+\makeatother
+
+
+% ==================================
+% CHAPTERS, SECTIONS, SUBSECTIONS WITHOUT NUMBERS
+% ==================================
+% define commands for chapters, sections, and subsections
+% that do not have a number, but are entered as candidates
+% for the table of contents.
+\newcommand\chap[1]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{#1}
+  \markboth{#1}{#1}
+}
+\newcommand\sect[1]{%
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}
+  \markright{#1}
+}
+\newcommand\subsect[1]{%
+  \subsection*{#1}%
+  \addcontentsline{toc}{subsection}{#1}
+}
+
+
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+% ------------------------------------------------- %
+
+% Must come in the beginning. Changes the spacing in the table of contents to look more pleasing
+\usepackage{tocloft}
+\setlength{\cftbeforepartskip}{5.0mm}
+\setlength{\cftbeforechapskip}{2.0mm}
+\setlength{\cftbeforesecskip}{0.0mm}
+
+% figure captions in bold (i.e. "Figure 1" in bold), sans serif, smaller font size, hanging label, always starting on the left side
+\usepackage[
+  font=small,
+  labelfont=bf,
+  labelsep=period
+]{caption}
+
+% figures centered, smaller font in tables, captions on top for tables
+% caption/table footnotes small
+\usepackage[]{floatrow}
+\DeclareFloatFont{tiny}{\tiny} % "scriptsize" is defined by floatrow, "tiny" is not
+\DeclareFloatFont{ssmall}{\ssmall}
+\floatsetup[table]{font={footnotesize},position=top}
+\captionsetup{footfont=footnotesize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Table formatting
+\usepackage{tabularx}  % For tables spanning the full text width
+\usepackage{booktabs}  % Commands to improve tabular; including horizontal rulers
+\usepackage{multirow}
+
+% Chapters should have numbers - a typical thesis consists of two chapters:
+% One to introduce and summarize the research ("kappa"), and one for
+% reproductions of the papers and manuscripts. No need to number them by default.
+% If you need chapter numbers back, comment the following line.
+%\renewcommand{\thesection}{\arabic{section}} 
+
+% Sections and subsections have numbers, subsubsections etc do not.
+\setcounter{secnumdepth}{2}
+
+% Only chapters and sections appear in the table of contents, not subsections etc
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}  % sections
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}  % subsections
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}  % subsubsections
+
+% not every page needs to go to the same bottom line. Allows nicer page breaks.
+%\raggedbottom
+
+% avoid orphan/widow lines. Lower this number if necessary to get a good layout.
+\widowpenalty500
+\clubpenalty500
+\interfootnotelinepenalty=10000  % prevent footnote splitting across two pages
+
+% paragraph settings
+\setlength{\parskip}{2mm}
+
+% Small caps serif font, for Paper numbers, ISBN, etc
+\newcommand{\I}{\textrm{\scshape i}\xspace}
+\newcommand{\II}{\textrm{\scshape ii}\xspace}
+\newcommand{\III}{\textrm{\scshape iii}\xspace}
+\newcommand{\IV}{\textrm{\scshape iv}\xspace}
+\newcommand{\V}{\textrm{\scshape v}\xspace}
+\newcommand{\VI}{\textrm{\scshape vi}\xspace}
+\newcommand{\VII}{\textrm{\scshape vii}\xspace}
+\newcommand{\VIII}{\textrm{\scshape viii}\xspace}
+\newcommand{\IX}{\textrm{\scshape ix}\xspace}
+\newcommand{\X}{\textrm{\scshape x}\xspace}
+\newcommand{\ISBN}{\textrm{\scshape isbn}\xspace}
+\newcommand{\ISSN}{\textrm{\scshape issn}\xspace}
+
+% Black box for the paper indicators
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+
+\makeatletter
+\newdimen\@myBoxSize%
+\newcommand{\PaperBox}[2][]{%
+    \pgfmathsetlength{\@myBoxSize}{14mm}%
+    \tikz \node [shape=rectangle,shape aspect=1,draw=black,fill=black,text depth=.25ex,minimum size=\@myBoxSize,#1] {#2};%
+}%
+\makeatother
+
+% Footnote without mark in the text
+% Source: https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+%----------------------------------------------------------------------
+
+% Modify how chapter beginnings look
+\usepackage{titlesec}
+
+% from https://texblog.org/2012/07/03/fancy-latex-chapter-styles/
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+% left / before / after
+\titlespacing*{\chapter}{0pt}{-20pt}{0pt}
+
+% Spacing between sections, subsections, and subsubsections
+\titlespacing*{\section}{0pt}{2em}{1.2em}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.8em}
+\titlespacing*{\subsubsection}{0pt}{1.5em}{0.7em}
+
+%----------------------------------------------------------------------
+
+% Quotes at the beginning of chapters
+\usepackage{epigraph}
+\setlength\epigraphwidth{0.5\textwidth}
+\setlength\epigraphrule{0pt}  % no line between
+\renewcommand*{\epigraphsize}{\normalsize\itshape}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define nice headers and footers
+% To keep the thesis non-cluttered we only put the page number into
+% the footer, and avoid headers
+\usepackage{fancyhdr}
+\fancyheadoffset{0cm}
+\pagestyle{plain}
+%page number in the foot centre 
+\cfoot{\fancyplain{\thepage}{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Biblatex
+%
+% Manual: http://ctan.imsc.res.in/macros/latex/contrib/biblatex/doc/biblatex.pdf
+% Modification quick guide: https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=nature,
+sorting=none,
+%sorting=nty,
+giveninits=true,  % abbreviate first names
+doi=false, 
+eprint=false, 
+url=false,
+isbn=false,
+minnames=3,
+maxnames=3,
+hyperref=true,
+backref=true
+]{biblatex}
+\setlength\bibitemsep{0.5\baselineskip}
+\addbibresource{Mendeley.bib}
+\addbibresource{miscrefs.bib}
+
+% Customize back references.
+\DefineBibliographyStrings{english}{%
+  backrefpage = {cited on page},    % originally "cit. on p."
+  backrefpages = {cited on pages},  % originally "cit. on pp"
+}
+
+% Prevent bibliography entries spanning pages and similar issues.
+% Source: https://tex.stackexchange.com/questions/305759/prevent-page-and-column-breaks-mid-bibliography-entries-in-biblatex-biber
+\patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}      % no orphans
+\patchcmd{\thebibliography}{\widowpenalty4000}{\widowpenalty10000}{}{}    % no widows
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{} % no break of entry

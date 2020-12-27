@@ -1,8 +1,8 @@
 # Latex Sources for my PhD Thesis *RNA Sequencing for Molecular Diagnostics in Breast Cancer*
 
-This repository houses the Latex sources for my PhD thesis entitled *RNA Sequencing for Molecular Diagnostics in Breast Cancer*, written at the Lund University Faculty of Medicine.
+This repository houses the Latex sources for my PhD thesis entitled [*RNA Sequencing for Molecular Diagnostics in Breast Cancer*](https://portal.research.lu.se/portal/files/88190954/Brueffer_PhD_Thesis.pdf), written at the Lund University Faculty of Medicine.
 
-The thesis was written in [Overleaf](https://www.overleaf.com) and is based on an [Overleaf template by Daniel Carrera](https://www.overleaf.com/latex/templates/template-for-phd-thesis-template-for-astronomy-at-lund-university/dppmypbdngjv), which in turn is based on / inspired by the official [Lund University Media-Tryck Latex template](https://www.mediatryck.lu.se/en/phd-students).
+The thesis was written using [Overleaf](https://www.overleaf.com) and is based on an [Overleaf template by Daniel Carrera](https://www.overleaf.com/latex/templates/template-for-phd-thesis-template-for-astronomy-at-lund-university/dppmypbdngjv), which in turn is based on / inspired by the official [Lund University Media-Tryck Latex template](https://www.mediatryck.lu.se/en/phd-students).
 
 ## Images
 
